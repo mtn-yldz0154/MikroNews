@@ -1,0 +1,67 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34728.123
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontend", "Frontend", "{A97D2A27-161D-4BD4-8DAF-A3207E29A6D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{E42AA5FE-84BE-4003-9A86-34886FD18F97}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikroNews.WebUI", "Frontend\MikroNews.WebUI\MikroNews.WebUI.csproj", "{EB7AB92E-2371-45B5-8AF6-011A5376A6EB}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikroNews.BusinessLayer", "Services\MikroNews.BusinessLayer\MikroNews.BusinessLayer.csproj", "{E47DCE12-72AB-4B88-848D-6187BDB3BAE3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikroNews.DataAccessLayer", "Services\MikroNews.DataAccessLayer\MikroNews.DataAccessLayer.csproj", "{EA501DEB-BE0C-4614-B8FA-082E6CE40BD5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikroNews.EntityLayer", "Services\MikroNews.EntityLayer\MikroNews.EntityLayer.csproj", "{3CF0A92D-700D-42F4-BC73-23CCD2EF2D79}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikroNews.DtoLayer", "Services\MikroNews.DtoLayer\MikroNews.DtoLayer.csproj", "{AD140C8D-BA55-463C-9F25-17F2D85CFEF5}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MikroNews.API", "Services\MikroNews.API\MikroNews.API.csproj", "{43ABBBB9-DC23-4680-BFB7-E6C1C88C8D5C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EB7AB92E-2371-45B5-8AF6-011A5376A6EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB7AB92E-2371-45B5-8AF6-011A5376A6EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB7AB92E-2371-45B5-8AF6-011A5376A6EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB7AB92E-2371-45B5-8AF6-011A5376A6EB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E47DCE12-72AB-4B88-848D-6187BDB3BAE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E47DCE12-72AB-4B88-848D-6187BDB3BAE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E47DCE12-72AB-4B88-848D-6187BDB3BAE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E47DCE12-72AB-4B88-848D-6187BDB3BAE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA501DEB-BE0C-4614-B8FA-082E6CE40BD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA501DEB-BE0C-4614-B8FA-082E6CE40BD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA501DEB-BE0C-4614-B8FA-082E6CE40BD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA501DEB-BE0C-4614-B8FA-082E6CE40BD5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CF0A92D-700D-42F4-BC73-23CCD2EF2D79}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CF0A92D-700D-42F4-BC73-23CCD2EF2D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CF0A92D-700D-42F4-BC73-23CCD2EF2D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CF0A92D-700D-42F4-BC73-23CCD2EF2D79}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD140C8D-BA55-463C-9F25-17F2D85CFEF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD140C8D-BA55-463C-9F25-17F2D85CFEF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD140C8D-BA55-463C-9F25-17F2D85CFEF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD140C8D-BA55-463C-9F25-17F2D85CFEF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43ABBBB9-DC23-4680-BFB7-E6C1C88C8D5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43ABBBB9-DC23-4680-BFB7-E6C1C88C8D5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43ABBBB9-DC23-4680-BFB7-E6C1C88C8D5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43ABBBB9-DC23-4680-BFB7-E6C1C88C8D5C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB7AB92E-2371-45B5-8AF6-011A5376A6EB} = {A97D2A27-161D-4BD4-8DAF-A3207E29A6D9}
+		{E47DCE12-72AB-4B88-848D-6187BDB3BAE3} = {E42AA5FE-84BE-4003-9A86-34886FD18F97}
+		{EA501DEB-BE0C-4614-B8FA-082E6CE40BD5} = {E42AA5FE-84BE-4003-9A86-34886FD18F97}
+		{3CF0A92D-700D-42F4-BC73-23CCD2EF2D79} = {E42AA5FE-84BE-4003-9A86-34886FD18F97}
+		{AD140C8D-BA55-463C-9F25-17F2D85CFEF5} = {E42AA5FE-84BE-4003-9A86-34886FD18F97}
+		{43ABBBB9-DC23-4680-BFB7-E6C1C88C8D5C} = {E42AA5FE-84BE-4003-9A86-34886FD18F97}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FA2C28CE-0B8B-498C-AC14-1C684237431B}
+	EndGlobalSection
+EndGlobal

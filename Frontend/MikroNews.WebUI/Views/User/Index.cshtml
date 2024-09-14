@@ -1,0 +1,98 @@
+﻿@model List<ResultNewsDto>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        .page-item.active .page-link {
+            background-color: #0d6efd;
+            border-color: #0d6efd;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color:rgb(237,241,241)" class="container col-10 mt-5">
+        <br />
+        <h1>HABERLER</h1>
+        <hr />
+        <br />
+
+        <div id="news-container">
+            <!-- News items will be inserted here by JavaScript -->
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination justify-content-center" id="pagination"></ul>
+        </nav>
+        <br />
+    </div>
+
+    <script>
+        const itemsPerPage = 2;
+        const newsData = @Html.Raw(Json.Serialize(Model));
+        const totalPages = Math.ceil(newsData.length / itemsPerPage);
+        let currentPage = 1;
+
+        function countWords(text) {
+            return text.trim().split(/\s+/).length;
+        }
+
+        function renderNews(page) {
+            currentPage = page;  // Update current page
+            const start = (page - 1) * itemsPerPage;
+            const end = page * itemsPerPage;
+            const paginatedItems = newsData.slice(start, end);
+
+            const newsContainer = document.getElementById('news-container');
+            newsContainer.innerHTML = '';
+
+            paginatedItems.forEach(item => {
+                const descriptionWordCount = countWords(item.description);
+                const showMoreButton = descriptionWordCount > 40;
+
+                newsContainer.innerHTML += `
+                                <div class="row mb-4">
+            <div class="col-4">
+                <img width="300" height="150" src="/CmsFiles/${item.imageUrl}" />
+            </div>
+            <div class="col-8">
+                <p style="color:blue;font-weight:bold">${item.title}</p>
+                <span>
+                    ${item.description}
+                    ${showMoreButton ? '<a href="/user/GetNewsDetail/' + item.id + '">Devamı</a>' : ''}
+                </span>
+            </div>
+        </div>
+
+                    `;
+            });
+
+            renderPagination(); // Re-render pagination to update the active state
+        }
+
+        function renderPagination() {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+
+            for (let i = 1; i <= totalPages; i++) {
+                pagination.innerHTML += `
+                        <li class="page-item ${i === currentPage ? 'active' : ''}">
+                            <a class="page-link" href="#" onclick="renderNews(${i}); return false;">${i}</a>
+                        </li>
+                    `;
+            }
+        }
+
+        // Initial render
+        renderNews(1);
+    </script>
+
+
+</body>
+</html>

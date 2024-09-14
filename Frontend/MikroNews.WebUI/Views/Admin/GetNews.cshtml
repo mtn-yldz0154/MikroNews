@@ -1,0 +1,120 @@
+﻿@model List<ResultNewsDto>
+@{
+    ViewData["Title"] = "GetNews";
+    Layout = "~/Views/Admin/AdminLayout.cshtml";
+}
+
+<link href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/rowreorder/1.4.1/css/rowReorder.dataTables.min.css" rel="stylesheet">
+<link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" rel="stylesheet">
+<div class="tab-content pt-2">
+    <div class="tab-pane fade konut-overview active show" id="konut-overview" role="tabpanel">
+        <table id="example1" class="" style="width:100%">
+
+            <thead>
+                <tr>
+                    <th>Haber Başlığı</th>
+                    <th>Haber Görseli</th>
+                    <th>Sıra No</th>
+                    <th>Haber Durumu</th>
+                    <th>Güncelleme Tarihi</th>
+                    
+                    <th>İşlem</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+
+                        <td>@item.Title</td>
+
+                        <td>
+                            <img height="30"width="70" src="~/CmsFiles/@item.ImageUrl" />
+                        </td>
+                        <td>@item.OrderNo</td>
+                        <td>
+                            @if(item.Status==true)
+                            {
+                                <span style="color: white; background-color: green; padding: 5px;">Aktif</span>
+                            }
+                            else
+                            {
+                                <span style="color: white; background-color: red; padding: 5px;">Pasif</span>
+                            }
+                        </td>
+                        <td>@item.Updated_Time</td>
+                        
+                        
+
+                        <td>
+                           @*  <a asp-action="IlanDetay" asp-controller="Ilan" asp-route-id="@item.Id" class="text-primary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Detay" data-bs-original-title="View detail" aria-label="Views"><i class="bi bi-eye-fill"></i></a> *@
+
+                            <a asp-action="EditNews" asp-controller="Admin" asp-route-id="@item.Id" class="text-warning" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Düzenle" data-bs-original-title="Edit info" aria-label="Edit"><i class="bi bi-pencil-fill"></i></a>
+
+                            <a onclick="confirmSil('Admin','DeleteNews','@item.Id')" class="text-danger" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Sil" data-bs-original-title="Delete" aria-label="Delete"><i class="bi bi-trash-fill"></i></a>
+
+
+
+                        </td>
+                    </tr>
+                }
+
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+<script src="https://cdn.datatables.net/rowreorder/1.4.1/js/dataTables.rowReorder.min.js"></script>
+<script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
+
+<script>
+    jQuery.noConflict();
+    jQuery(document).ready(function ($) {
+        $('#example1').DataTable({
+            scrollX: true,
+            responsive: true,
+            rowReorder: {
+                selector: 'td:nth-child(2)'
+            },
+            language: {
+                info: "_TOTAL_ kayıttan _START_ - _END_ kayıt gösteriliyor.",
+                infoEmpty: "Gösterilecek hiç kayıt yok.",
+                loadingRecords: "Kayıtlar yükleniyor.",
+                zeroRecords: "Tablo boş",
+                search: "Arama:",
+                infoFiltered: "(toplam _MAX_ kayıttan filtrelenenler)",
+                buttons: {
+                    copyTitle: "Panoya kopyalandı.",
+                    copySuccess: "Panoya %d satır kopyalandı",
+                    copy: "Kopyala",
+                    print: "Yazdır",
+                },
+                paginate: {
+                    first: "İlk",
+                    previous: "Önceki",
+                    next: "Sonraki",
+                    last: "Son"
+                },
+            },
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ],
+            pageLength: 2, // Varsayılan olarak her sayfada 2 kayıt göster
+            lengthMenu: [[2, 5, 10, -1], [2, 5, 10, "Tüm"]] // Kullanıcılara 2, 5, 10 veya tüm kayıtları gösterme seçeneği sunar
+        });
+    });
+</script>

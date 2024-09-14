@@ -1,0 +1,145 @@
+﻿@model RegisterModel
+
+@{
+    Layout = null;
+}
+
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        background-color: #f2f2f2;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .form-box {
+        width: 400px;
+        padding: 40px;
+        background: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    h2 {
+        margin-bottom: 20px;
+        color: #333;
+        text-align: center;
+    }
+
+    .input-box {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+        .input-box input {
+            width: 100%;
+            padding: 10px 40px;
+            border: none;
+            background: #f2f2f2;
+            border-radius: 5px;
+        }
+
+        .input-box label {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            padding: 0 5px;
+            background: #fff;
+            color: #333;
+            font-size: 14px;
+        }
+
+        .input-box .icon {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #333;
+        }
+
+    .btn {
+        width: 100%;
+        padding: 10px;
+        background-color: #007bff;
+        border: none;
+        color: white;
+        font-size: 16px;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .btn:hover {
+            background-color: #0056b3;
+        }
+
+    .login-register {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+        .login-register a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+            .login-register a:hover {
+                text-decoration: underline;
+            }
+
+</style>
+
+<div class="form-box register">
+    <h2>Admin Ekle</h2>
+    <form asp-controller="Admin" asp-action="Register" method="POST">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input class="form-control" asp-for="FirstName" placeholder="Ad" required>
+            <label>Ad</label>
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person"></ion-icon></span>
+            <input class="form-control" asp-for="LastName" placeholder="Soyad" required>
+            <label>Soyad</label>
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+
+        <div class="input-box">
+            <span class="icon"><ion-icon name="person-circle"></ion-icon></span>
+            <input class="form-control" asp-for="UserName" placeholder="Kullanıcı Adı" required>
+            <label>Kullanıcı Adı</label>
+            <span asp-validation-for="UserName" class="text-danger"></span>
+        </div>
+
+        <div class="input-box">
+            <span class="icon"><ion-icon name="mail"></ion-icon></span>
+            <input class="form-control" asp-for="Email" type="email" placeholder="E-posta" required>
+            <label>E-posta</label>
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input class="form-control" asp-for="Password" type="password" placeholder="Parola" required>
+            <label>Parola</label>
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+
+        <div class="input-box">
+            <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+            <input class="form-control" asp-for="RePassword" type="password" placeholder="Parola Tekrar" required>
+            <label>Parola Tekrar</label>
+            <span asp-validation-for="RePassword" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn">Ekle</button>
+
+        
+    </form>
+</div>

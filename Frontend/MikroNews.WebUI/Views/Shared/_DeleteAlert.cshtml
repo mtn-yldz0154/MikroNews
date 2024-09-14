@@ -1,0 +1,71 @@
+﻿
+@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+<style>
+    .uyari-penceresi {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        text-align: center;
+        display: none;
+        width: 500px;
+    }
+
+    .uyari-button {
+        padding: 8px 20px;
+        margin: 0 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        color: white;
+    }
+
+    .evet-button {
+        background-color: #3498db;
+    }
+
+    .hayir-button {
+        background-color: #e74c3c;
+    }
+
+</style>
+<div id="uyariPenceresi" class="uyari-penceresi">
+    <p>Bu işlemi yapmak istediğinizden emin misiniz?</p>
+    <button id="evetButton" class="uyari-button evet-button">Evet</button>
+    <button id="hayirButton" class="uyari-button hayir-button">Hayır</button>
+</div>
+
+<script>
+    var uyariPenceresi = document.getElementById("uyariPenceresi");
+    var evetButton = document.getElementById("evetButton");
+    var hayirButton = document.getElementById("hayirButton");
+
+    function gosterUyari() {
+        uyariPenceresi.style.display = "block";
+    }
+
+    function gizleUyari() {
+        uyariPenceresi.style.display = "none";
+    }
+    function confirmSil(control, view, itemId) {
+        gosterUyari();
+        evetButton.onclick = function () {
+            // Silme işlemini gerçekleştir
+            // Örneğin, window.location ile yönlendirme yapabilirsiniz.
+            window.location.href = '/' + control + '/' + view + '/' + itemId;
+            gizleUyari();
+
+        }
+        hayirButton.onclick = function () {
+            gizleUyari();
+        }
+    }
+</script>

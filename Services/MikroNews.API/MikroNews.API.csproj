@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MikroNews.BusinessLayer\MikroNews.BusinessLayer.csproj" />
+    <ProjectReference Include="..\MikroNews.DataAccessLayer\MikroNews.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\MikroNews.DtoLayer\MikroNews.DtoLayer.csproj" />
+    <ProjectReference Include="..\MikroNews.EntityLayer\MikroNews.EntityLayer.csproj" />
+  </ItemGroup>
+
+</Project>
